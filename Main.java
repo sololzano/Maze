@@ -6,5 +6,8 @@ public class Main {
 		int y = args.length == 2 ? (Integer.parseInt(args[1])) : 8;
 		MazeGenerator maze = new MazeGenerator(x, y);
 		maze.display();
+		
+		LeftHand solver = new LeftHand();
+		solver.solve(maze);
 	}
 }
