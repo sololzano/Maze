@@ -5,6 +5,7 @@
  * Luis Diego Sierra
  * Carlos Solórzano
  * salvador recinos 
+ *Giovani Velasquez
  * Resuelve un laberinto utilizando la regla de la mano izquierda
  */
 #include "simpletools.h"                      // Include simple tools
