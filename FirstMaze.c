@@ -4,6 +4,7 @@
  * Sección 10
  * Luis Diego Sierra
  * Carlos Solórzano
+ * Resuelve un laberinto utilizando la regla de la mano izquierda
  */
 #include "simpletools.h"                      // Include simple tools
 #include "abdrive.h"
@@ -43,22 +44,39 @@ int main()                                    // Main function
       freqout(RIGHT_OUT, 1, 0);
       
       // Medir distancia frontal
-      distance = ping(ULTRASONIC);
+      distance = ping_cm(ULTRASONIC);
       pause(10);
       
       // Tomar decisiones de movimiento
       choices(left, right, distance);
       
-      pause(100);
-    
+      pause(50);
   }  
 }
 
 /**
  * Toma de decisiones en base a mediciones
- 
+ * @param left - 1 si no existe pared al lado izquierdo
+ * @param right - 1 si no existe pared al lado derecho
+ * @param distance - Distancia en cm medida con sensor ultrasónico
+ * @return void
  */
 void choices(int left, int right, int distance)
 {
-   
+   // Regla de la mano izquierda
+   if (left == 0 && distance > 10) {
+    drive_speed(128, 128); 
+   }else if (left == 1) {
+    drive_speed(0, 0);
+    pause(15);
+    drive_goto(-25, 26);  
+   }else if (right == 1) {
+     drive_speed(0, 0);
+     pause(15);
+     drive_goto(26, -25);
+   }else {
+     drive_speed(0, 0);
+     pause(15);
+     drive_goto(104, -100);
+   }                    
 }  
