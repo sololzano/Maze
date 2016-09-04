@@ -4,6 +4,7 @@
  * Sección 10
  * Luis Diego Sierra
  * Carlos Solórzano
+ * salvador recinos 
  * Resuelve un laberinto utilizando la regla de la mano izquierda
  */
 #include "simpletools.h"                      // Include simple tools
